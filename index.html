@@ -1,24 +1,335 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Nerds</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Caroussel voor het selecteren van de nerd -->
-     <header>
-        <ul>
-            <li>Kilian Valkhof</li>
-        </ul>
-     </header>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script src="photo.js"></script>
+    <script src="wrapper.js"></script>
+    <script src="main.js"></script>
 
-     <main>
-        <ul>
-            <li>KV Content</li>
-        </ul>
-     </main>
-</body>
+    <nav>
+      <a href="/"><img src="" alt="logo"/></a>
+      <ul>
+        <li>
+          <a href="#about">About</a>
+        </li>
+        <li>
+          <a href="#goals">Goals</a>
+        </li>
+        <li>
+          <a href="#WN">Weekly Nerds</a>
+        </li>
+        <li>
+          <a href="#classes">Classes</a>
+        </li>
+      </ul>
+      <a href="https://chrisdonker.nl/" target="_blank">More of Me</a>
+    </nav>
+
+    <header>
+      <h2>Web<br />Developer</h2>
+      <section>
+        <p>Hi, I'm Chris a Creative Specialist from <br />The Netherlands.</p>
+        <img src="img/chris.png" alt="pf-photo" />
+      </section>
+    </header>
+    <div id="wrapper" class="wrapper"></div>
+
+    <section id="about">
+      <div class="border-box">
+        <span class="border-content">About Me</span>
+      </div>
+      <section id="content">
+        <h2>To design and create is a passion</h2>
+        <p>
+          I like to go bouldering and do Scouting in the weekends for kids
+          between age 14 up to 18
+        </p>
+      </section>
+      <section id="stats">
+        <img class="randomPhoto" src="" alt="me content" />
+
+        <section id="counters">
+          <article>
+            <h3>+17</h3>
+            <p>this is the years i've been doing scouting</p>
+          </article>
+
+          <article>
+            <h3>+207</h3>
+            <p>the amount in centimers that reaches the top of my head</p>
+          </article>
+        </section>
+      </section>
+    </section>
+
+    <section id="goals">
+      <div class="border-box">
+        <span class="border-content">Goals</span>
+      </div>
+      <div>
+        <section id="goalContent">
+          <h2>Minor Goals</h2>
+          <p>
+            Leren zonder doel, is een lastig pakket. Wat wil je doen? waar wil
+            je beter in worden?
+          </p>
+          <a href="">More Goals</a>
+        </section>
+
+        <section id="goalCards">
+          <article class="goalCard">
+            <h3>Digital Comfortzone</h3>
+            <p>
+              Mezelf uitdagen door uit mijn digitale comfortzone te stappen om
+              de (voor mij) meest extreem complexe frontend constructies te
+              maken
+            </p>
+            <svg width="61" height="47" viewBox="0 0 61 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.96228 23.3709L56.1176 23.3709M56.1176 23.3709L36.9343 42.5541M56.1176 23.3709L36.9343 4.18768" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                
+            <hr class="solid" />
+          </article>
+          <article class="goalCard">
+            <h3>Minimal Power</h3>
+            <p>
+              Opzoek gaan naar de outskirts van wat mogelijk is op zo minimaal
+              krachtige computers maar met de meest machtige website structuren
+              in de basis codeer talen.
+            </p>
+            <svg width="61" height="47" viewBox="0 0 61 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.96228 23.3709L56.1176 23.3709M56.1176 23.3709L36.9343 42.5541M56.1176 23.3709L36.9343 4.18768" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
+            <hr class="solid" />
+          </article>
+          <article class="goalCard">
+            <h3>Powerfull Feedback</h3>
+            <p>
+              Feedback geven en ontvangen kan altijd beter, hierin merk ik dat
+              ik zeker nog kan groeien.
+
+            <svg width="61" height="47" viewBox="0 0 61 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.96228 23.3709L56.1176 23.3709M56.1176 23.3709L36.9343 42.5541M56.1176 23.3709L36.9343 4.18768" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
+            <hr class="solid" />
+          </article>
+          <article class="goalCard">
+            <h3>Inclusivity</h3>
+            <p>
+              De web projecten die ik ontwikkel inclusiever maken, maar al
+              eerder binnen het bouw proces.
+            </p>
+            <svg width="61" height="47" viewBox="0 0 61 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.96228 23.3709L56.1176 23.3709M56.1176 23.3709L36.9343 42.5541M56.1176 23.3709L36.9343 4.18768" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
+            <hr class="solid" />
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <section id="WN">
+        <div class="border-box">
+            <span class="border-content">Weekly Nerd</span>
+        </div>
+        <section id="intro">
+            <h2>Weekly Nerds</h2>
+            <p>intro tekstje
+            </p>
+        </section>
+        <section id="weeks">
+            <ul>
+                <li> <a href="">
+                    <div>
+                        <h4>“Stop using Js for that” by <strong>Kilian Valkhof</strong></h3>
+                        <p>korte info tekst over de weekly nerd</p>
+                    </div>
+                    <h3>5 Februari 2025</h4>
+                </a></li>
+                <li><a href="">
+                    <div>
+                        <h4>"Pay the Web Forward with web monetization" by <strong>Peter-Paul Koch</strong></h3>
+                        <p>korte info tekst over de weekly nerd</p>
+                    </div>
+                    <h3>26 Februari 2025</h4>
+                </a></li>
+                <!-- <li><a href="">
+                    <div>
+                        <h4>project by speaker</h3>
+                        <p>korte info tekst over de weekly nerd</p>
+                    </div>
+                    <h3>Week 1</h4>
+                </a></li> -->
+                <!-- <li><a href="">
+                        <div>
+                            <h4>project by speaker</h3>
+                            <p>korte info tekst over de weekly nerd</p>
+                        </div>
+                        <h3>Week 1</h4>
+                </a></li> -->
+            </ul>
+           
+
+            
+
+          
+
+        </section>
+
+    </section>
+
+    <section id="classes">
+        <div class="border-box">
+            <span class="border-content">Classes</span>
+        </div>
+        <section id="intro">
+            <h2>Zie hier de projecten die ik heb gedaan voor deze minor</h2>
+            <p>Elk project word afgesloten met een digitaal product/p>
+        </section>
+        <section>
+            <a href="https://christian199815.github.io/MWDND-WAFS/" target="_blank">
+                <figure>
+                    <img src="img/wafs-cover.png" alt="project foto van WAFS">
+                <figcaption>
+                    <h3>WAFS</h3>
+                    <ul>
+                        <li>THREE.js</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                    <img src="img/arrow.png" alt="arrow icon">
+                </figcaption>
+                </figure>
+            </a>
+            <a href="">
+                <figure>
+                    <img src="" alt="">
+                <figcaption>
+                    <h3>Browser Technology Day 1</h3>
+                    <ul>
+                        <li>Ad Blocking</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                    <img src="" alt="">
+                </figcaption>
+                </figure>
+            </a>
+            <a href="">
+                <figure>
+                    <img src="" alt="">
+                <figcaption>
+                    <h3></h3>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <img src="" alt="">
+                </figcaption>
+                </figure>
+            </a>
+            <a href="">
+                <figure>
+                    <img src="" alt="">
+                <figcaption>
+                    <h3></h3>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <img src="" alt="">
+                </figcaption>
+                </figure>
+            </a>
+            <a href="">
+                <figure>
+                    <img src="" alt="">
+                <figcaption>
+                    <h3></h3>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <img src="" alt="">
+                </figcaption>
+                </figure>
+            </a>
+            <a href="">
+                <figure>
+                    <img src="" alt="">
+                <figcaption>
+                    <h3></h3>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <img src="" alt="">
+                </figcaption>
+                </figure>
+            </a>
+        </section>
+
+    </section>
+
+    <footer>
+        <section>
+            <div>
+                <h2>Minor Away</h2>
+                <label>
+                    <input type="checkbox" onchange="handleToggle(this)">
+                    <span></span>
+                </label>
+            </div>
+            <hr>
+            <section id="userInfo">
+                <ul>
+                    <li>
+                        <img src="" alt="">
+                        <h3>Chris Donker</h3>
+                        <p> over chris text</p>
+                    </li>
+                    <li>
+                        <h4>Adress</h4>
+                        <p>Wibautstraat, Amsterdam</p>
+                    </li>
+                    <li>
+                        <h4>Email Adress</h4>
+                        <p>chris@donker.nl</p>
+                    </li>
+                    <li>
+                        <h4>Phone number</h4>
+                        <p>+31 6 12345678</p>
+                    </li>
+                </ul>
+
+                <section id="externals">
+                    <ul>
+                        <li>insta</li>
+                        <li>linkedin</li>
+                        <li>github</li>
+                    </ul>
+
+                    <ul>
+                        <li>hva</li>
+                        <li>Minor WD&D</li>
+                    </ul>
+                </section>
+            </section>
+            <hr>
+            <p>All Rights Reserved ©ChrisDonker</p>
+        </section>
+    </footer>
+  </body>
 </html>

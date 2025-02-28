@@ -1,26 +1,805 @@
-body{
-    margin: 0;
-    padding: 0;
+:root {
+  --gradient-start: black; /* Start and end color of the gradient */
+  --gradient-middle: #e0e0e0; /* Middle color of the gradient */
+  --background-color: white; /* Background color of the box */
+  --text-color: #333; /* Color of the text content */
+  --page-background: #f0f0f0; /* Background color of the page */
+
+  --box-width: 110px; /* Width of the box */
+  --box-height: 50px; /* Height of the box */
+  --border-radius: 50px; /* Border radius of the box */
+  --border-width: 1px; /* Width of the animated border */
+
+  --animation-duration: 2s; /* Duration of one complete animation cycle */
+  --gradient-size: 200%; /* Size of the gradient (affects animation smoothness) */
+
+  --card-bg-color: #fafafa;
+  --card-text-color: #111111;
+
+  --item-height: 9em; /* Set your item height */
+
 }
 
-header{
-    width: 100vw;
-    height: 100vh;
+html,
+body,
+h2,
+h3,
+p,
+hr {
+  margin: 0;
+  padding: 0;
 
-    background-color: lightblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html{
+    scroll-behavior: smooth; /* For smooth scrolling */
+}
+
+body {
+  padding: 0 2em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+  }
+
+#about,
+#goals,
+#WN,
+#classes {
+  scroll-margin-top: 100px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  /* width: 100%; */
+  left: 2em;
+  right: 2em;
+  box-sizing: border-box;
+
+  z-index: 1000; 
+}
+
+/* #region Top Navigation */
+
+nav ul {
+  display: flex;
+  gap: 1em;
+
+  list-style: none;
+}
+
+nav > a:nth-of-type(2) {
+  border-radius: 25px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 1em;
+  width: 8em;
+}
+
+/* #endregion */
+
+/* #region Header */
+
+header {
+  /* width: calc(100% - 4em); Subtract total side padding */
+  height: calc(90% - 1em);
+  position: relative;
+  box-sizing: border-box;
+}
+
+header h2 {
+  font-weight: 500;
+  text-transform: uppercase;
+
+  position: absolute;
+  bottom: 0;
+
+  font-size: 7em;
+}
+
+header > section {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 400px;
+
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 11em;
+  align-items: end;
+}
+
+header > section img {
+  background-color: grey;
+  height: 375px;
+  width: 280px;
+
+  border-radius: 10px;
+}
+
+header > section p {
+  width: 11rem;
+  text-wrap: wrap;
+
+  font-weight: 500;
+  text-transform: none;
+  font-size: 1.2em;
+
+  text-align: end;
+}
+
+/* #endregion */
+
+/*#region about me */
+
+#about {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+/* block with h2 and p */
+#about > section:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: end;
+
+  margin-bottom: 2em;
+}
+#about section:nth-of-type(1) h2 {
+  font-weight: 500;
+  font-size: 3.2em;
+
+  width: 50%;
+  text-wrap: wrap;
+}
+
+#about section:nth-of-type(1) p {
+  font-weight: 100;
+  font-size: 1.2em;
+  width: 40%;
+  color: gray;
+  /* text-align: end; */
+}
+/* block with image and counters */
+#about section:nth-of-type(2) {
+  display: flex;
+  justify-content: space-between;
+}
+#about section:nth-of-type(2) img {
+  width: 55%;
+  height: 450px;
+  background-color: grey;
+  border-radius: 10px;
+}
+/* counters block */
+#about section:nth-of-type(2) > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* gap: 4em; */
+}
+
+#about section:nth-of-type(2) section article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+#about section:nth-of-type(2) section article h3 {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+#about section:nth-of-type(2) section article p {
+  font-size: large;
+  font-weight: lighter;
+}
+
+/* #endregion */
+
+/*#region wrapper */
+
+
+
+.wrapper {
+  width: 90%;
+  max-width: 1536px;
+  margin-inline: auto;
+  position: relative;
+  height: 200px;
+  margin-top: 5rem;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.item {
+  width: 200px;
+  height: 100px;
+  border-radius: 25px;
+
+  background-color: #f3f3f3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #3e3e3e;
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 1rem;
+  flex-shrink: 0;
+}
+
+/* #endregion */
+
+/* #region Category Span */
+.border-box {
+    height: var(--box-height);
+    position: relative;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.border-box::before {
+  content: "";
+  text-align: center;
+  position: absolute;
+  width: 100%; /* Changed from var(--box-width) */
+  height: var(--box-height);
+  padding: var(--border-width);
+  border-radius: var(--border-radius);
+  background: linear-gradient(
+    90deg,
+    var(--gradient-start),
+    var(--gradient-middle),
+    var(--gradient-start)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background-size: var(--gradient-size) 100%;
+}
+
+#about .border-box {
+    --box-width: 110px; /* Or whatever width you want for about section */
+    width: var(--box-width);
+  }
+  
+  #goals .border-box {
+    --box-width: 80px; /* Or whatever width you want for goals section */
+    width: var(--box-width);
+  }
+
+  #WN .border-box{
+    --box-width: 140px; /* Or whatever width you want for goals section */
+    width: var(--box-width);
+  }
+
+  #classes .border-box{
+    --box-width: 140px; /* Or whatever width you want for goals section */
+    width: var(--box-width);
+  }
+
+/* categorie visual */
+#about span,
+#goals span,
+#WN span,
+#classes span {
+  padding: 1em;
+  text-align: center;
+  z-index: 1;
+}
+
+@keyframes moveGradient {
+  100% {
+    background-position: calc(-1 * var(--gradient-size)) 0;
+  }
+}
+
+/* #endregion */
+
+/* #region Goal Section */
+#goals {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  position: relative;
+  margin-top: 2em;
+
+  height: 35em;
+}
+
+#goals > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#goals > div > section:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  position: relative;
+  align-items: start;
+  width: 19em;
+  gap: 1em;
+  /* margin-bottom: 2em; */
+}
+#goals > div > section:nth-of-type(1) h2 {
+  font-weight: 500;
+  font-size: 3.2em;
+
+  /* width: 50%; */
+  text-wrap: wrap;
+}
+
+#goals > div > section:nth-of-type(1) p {
+  font-weight: 100;
+  font-size: 1.2em;
+  /* width: 40%; */
+  color: gray;
+  /* text-align: end; */
+}
+
+#goals > div > section:nth-of-type(1) a {
+  width: 6em;
+  height: auto;
+  padding: 0.5em;
+  border-radius: 50px;
+  color: #fafafa;
+  text-align: center;
+
+  background-color: black;
+}
+
+#goals section:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.goalCard {
+  width: 300px;
+  height: 150px;
+
+  color: var(--card-text-color);
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+
+  padding: 1em;
+  transition: height 0.45s ease-in;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  position: relative;
+}
+
+.goalCard:hover {
+  height: 200px;
+
+  transition: height 0.45s ease-out;
+  background-color: var(--card-text-color);
+  color: var(--card-bg-color);
+}
+
+.goalCard:has(:hover) hr{
+  color: var(--card-bg-color);
+}
+
+.goalCard svg{
+    transform: scale(.7);
+}
+
+.goalCard:hover svg path {
+    stroke: var(--card-bg-color);
+}
+
+.goalCard svg {
+  transform: rotate(0deg);
+  transition: transform 0.65s ease;
+
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
+
+.goalCard:hover svg{
+    transform: rotate(-45deg);
+}
+
+
+.goalCard hr {
+  order: 1;
+  height: 1px;
+  width: 30%;
+  margin-bottom: 1.2em;
+  background-color: black;
+}
+
+.goalCard h3 {
+  order: 2;
+}
+
+.goalCard p {
+  order: 3;
+}
+
+.goalCard a, .goalCard svg {
+  order: 4;
+}
+
+
+
+/* #endregion */
+
+/* #region Weekly Nerd Section */
+#WN{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+    margin-top: 2em;
+  
+    height: var(--item-count);
+}
+
+#WN > section:nth-of-type(1){
+    display: flex;
+    justify-content: space-between;
+}
+
+#WN > section:nth-of-type(1) h2{
+    font-weight: 500;
+    font-size: 2em;
+
+}
+
+#WN > section:nth-of-type(1) p{
+    font-weight: 200;
+    font-size: 1.2em;
+}
+
+#WN > section:nth-of-type(2) {
     position: relative;
 
-    margin: 1em;
+    height: calc(var(--item-height) * 5);
 }
 
-header ul{
-    width: 100%;
-    height: 100%;
-    background-color: darkblue;
+#WN > section:nth-of-type(2) ul {
+    list-style: none;
 }
 
-main{
+#WN > section:nth-of-type(2) li a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 9em;
+    transition: background-color 1s ease;
+
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    left: -2em;
     position: absolute;
 
-    
+
+
+    background-color: #fafafa;
+
+    height: var(--item-height);
+
 }
+
+#WN > section:nth-of-type(2) li:nth-child(1) a { top: calc(var(--item-height) * 0); }
+#WN > section:nth-of-type(2) li:nth-child(2) a { top: calc(var(--item-height) * 1); }
+#WN > section:nth-of-type(2) li:nth-child(3) a { top: calc(var(--item-height) * 2); }
+#WN > section:nth-of-type(2) li:nth-child(4) a { top: calc(var(--item-height) * 3); }
+
+#WN > section:nth-of-type(2) a:hover{
+    background-color: #e3e3e3;
+}
+
+
+
+
+
+/* #endregion */
+
+/* #region Classes Section */
+
+#classes{
+
+}
+
+#classes section:nth-of-type(1){
+
+}
+
+#classes section:nth-of-type(2){
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+}
+
+ /* Base styling for the card */
+#classes section:nth-of-type(2) a {
+    display: block;
+    position: relative;
+    background-color: lightblue;
+    min-width: calc(100% - 20px);
+    min-height: 285px;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Make the figure fill the card */
+  #classes section:nth-of-type(2) a figure {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: relative;
+  }
+  
+  /* Style the main image */
+  #classes section:nth-of-type(2) a figure > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Figcaption overlay styling */
+  #classes section:nth-of-type(2) a figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    padding: 1.7em;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Show figcaption on hover */
+  #classes section:nth-of-type(2) a:hover figcaption {
+    opacity: 1 !important; /* Override the inline style */
+  }
+  
+  /* Style the heading inside figcaption */
+  #classes section:nth-of-type(2) a figcaption h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Style the list inside figcaption */
+  #classes section:nth-of-type(2) a figcaption ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  #classes section:nth-of-type(2) a figcaption li {
+    margin-bottom: 5px;
+  }
+  
+  /* Style the arrow icon */
+  #classes section:nth-of-type(2) a figcaption img {
+    /* width: 30px;
+    height: auto;
+    margin-top: 10px; */
+
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    transform: rotate(-45deg) scale(.7);
+
+  }
+
+
+
+/* Remove the inline opacity style from HTML and use this CSS instead
+#classes section:nth-of-type(2) figure figcaption {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* The hover selector */
+/* #classes section:nth-of-type(2) a:hover figure figcaption {
+    opacity: 1 !important;
+ }  */
+
+/* #endregion */
+
+/* #region footer */
+footer {
+    background-color: black;
+    color: #fafafa;
+
+    height: 32em;
+    position: relative;
+
+    margin-top: 12em;
+}
+
+/* the full footer */
+footer >section:nth-of-type(1){
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    left: -2em;
+    position: absolute;
+    background-color: black;
+
+    height: 32em;
+}
+footer section div {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+
+footer section div h2{
+    font-weight: 300;
+    font-size: 4.1em;
+}
+
+/* Footer toggle container */
+footer section div label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide checkbox input */
+footer section div label input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider track */
+footer section div label span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+/* Slider button */
+footer section div label span:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0% { transform: translateX(26px) scale(1); }
+    50% { transform: translateX(26px) scale(0.9); }
+    100% { transform: translateX(26px) scale(1); }
+}
+
+/* Checked states */
+footer section div label input:checked + span {
+    background-color: #2196F3;
+}
+
+footer section div label input:checked + span:before {
+    transform: translateX(26px);
+}
+
+/* Loading state */
+footer section div label input:checked.loading + span:before {
+    animation: pulse 1s infinite;
+}
+
+/* Hover states */
+footer section div label span:hover {
+    background-color: #aaa;
+}
+
+footer section div label input:checked + span:hover {
+    background-color: #1976D2;
+}
+
+footer ul {
+    margin: 0;
+    width: calc(100% - 4em);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+/* #endregion */
+
+
+
+/* #region Inclusivity */
+@media ( prefers-reduced-motion: no-preference ) {
+    .border-box::before {
+        animation: moveGradient var(--animation-duration) linear infinite;
+    }
+
+    @keyframes scrollLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+}
+
+/* #endregion */
