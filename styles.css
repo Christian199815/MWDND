@@ -37,6 +37,10 @@ img {
   height: auto;
 }
 
+button{
+  all: unset;
+}
+
 html,
 body {
   margin: 0;
@@ -65,19 +69,21 @@ a {
   scroll-margin-top: 100px;
 }
 
+
+
+/* #region Top Navigation */
+
 nav {
   display: flex;
   justify-content: space-between;
   position: fixed;
-  /* width: 100%; */
+  margin-top: 1em;
   left: 2em;
   right: 2em;
   box-sizing: border-box;
 
   z-index: 1000; 
 }
-
-/* #region Top Navigation */
 
 nav ul {
   display: flex;
@@ -513,7 +519,7 @@ header > section p {
     list-style: none;
 }
 
-#WN > section:nth-of-type(2) li a{
+#WN > section:nth-of-type(2) li button{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -534,14 +540,23 @@ header > section p {
 
 }
 
-#WN > section:nth-of-type(2) li:nth-child(1) a { top: calc(var(--item-height) * 0); }
-#WN > section:nth-of-type(2) li:nth-child(2) a { top: calc(var(--item-height) * 1); }
-#WN > section:nth-of-type(2) li:nth-child(3) a { top: calc(var(--item-height) * 2); }
-#WN > section:nth-of-type(2) li:nth-child(4) a { top: calc(var(--item-height) * 3); }
+#WN > section:nth-of-type(2) li:nth-child(1) button { top: calc(var(--item-height) * 0); }
+#WN > section:nth-of-type(2) li:nth-child(2) button { top: calc(var(--item-height) * 1); }
+#WN > section:nth-of-type(2) li:nth-child(3) button { top: calc(var(--item-height) * 2); }
+#WN > section:nth-of-type(2) li:nth-child(4) button { top: calc(var(--item-height) * 3); }
 
-#WN > section:nth-of-type(2) a:hover{
+#WN > section:nth-of-type(2) button:hover{
     background-color: #e3e3e3;
 }
+
+#WN > section:nth-of-type(2) li > div{
+  width: 90dvw;
+  height: 70dvh;
+
+  border-radius: 1em;
+}
+
+
 
 
 
@@ -653,17 +668,6 @@ header > section p {
   }
 
 
-
-/* Remove the inline opacity style from HTML and use this CSS instead
-#classes section:nth-of-type(2) figure figcaption {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
-
-/* The hover selector */
-/* #classes section:nth-of-type(2) a:hover figure figcaption {
-    opacity: 1 !important;
- }  */
 
 /* #endregion */
 
