@@ -1,0 +1,399 @@
+[
+    {
+      "id": "KV-WN",
+      "title": "Stop using Js for that",
+      "speaker": "Kilian Valkhof",
+      "type": "Weekly Nerd",
+      "date": "05 Februari 2025",
+      "dateObj": "2025-02-05",
+      "content": {
+        "summary": "Kilian Valkhof explains how many functions that were previously written in JavaScript can now be solved with HTML and CSS. He follows the Rule of Least Power, using the least powerful technology that can do the job.",
+        "highlights": ["Modern HTML & CSS features that replace JavaScript"],
+        "features": [
+          {
+            "title": "Custom Switches",
+            "description": "The <input type=\"checkbox\"> can be styled as a switch with appearance: none; and additional CSS."
+          },
+          {
+            "title": "Input Color",
+            "description": "Color pickers are now standard with <input type=\"color\">, no extra JavaScript needed."
+          },
+          {
+            "title": "Smooth Scrolling",
+            "description": "With scroll-behavior: smooth; in CSS, anchor links can scroll smoothly without JS."
+          },
+          {
+            "title": "Accordion",
+            "description": "The <details> and <summary> elements create an interactive expandable menu without JavaScript."
+          },
+          {
+            "title": "Dialog Element",
+            "description": "<dialog> replaces JavaScript alerts and provides full control over modal windows."
+          },
+          {
+            "title": "Parent Selector :has()",
+            "description": "CSS can now check if an element contains another, making styling more flexible."
+          },
+          {
+            "title": "Scroll-Driven Animations",
+            "description": "Heavy JavaScript scroll animations can now be done more efficiently with pure CSS."
+          }
+        ],
+        "conclusion": "Valkhof emphasizes that HTML and CSS are becoming increasingly powerful, reducing dependency on JavaScript and making websites faster and more robust."
+      }
+    },
+    {
+      "id": "PPK-WN",
+      "title": "Pay the Web Forward with web monetization",
+      "speaker": "Peter-Paul Koch",
+      "type": "Weekly Nerd",
+      "date": "26 Februari 2025",
+      "dateObj": "2025-02-26",
+      "content": {
+        "summary": "Peter-Paul Koch discusses the necessity of paid websites and alternatives to advertising. He argues that not everything needs to be free and that web services deserve fair funding methods, such as subscriptions, pay-per-visit, or payment based on time spent.",
+        "sections": [
+          {
+            "title": "How can web monetization work?",
+            "items": [
+              {
+                "title": "Wallets",
+                "description": "Digital wallets linked to bank accounts."
+              },
+              {
+                "title": "Browser Extensions",
+                "description": "Acting as intermediaries to execute payments."
+              },
+              {
+                "title": "Spending Rate",
+                "description": "Users determine how much they want to pay."
+              }
+            ]
+          },
+          {
+            "title": "Technical implementation",
+            "items": [
+              {
+                "title": "Payment Request API",
+                "description": "For credit card payments."
+              },
+              {
+                "title": "Web Monetization Agent",
+                "description": "Manages payments, processes transactions, and sends events to developers."
+              },
+              {
+                "title": "Offline tracking",
+                "description": "Local storage (cookies/localStorage) can track how long a user visits a site, allowing payment processing later."
+              }
+            ]
+          }
+        ],
+        "challenges": "Current challenges include regional regulations (e.g., US vs. EU) and the lack of a standardized wallet. Once these are resolved, web monetization can work globally.",
+        "conclusion": "Koch emphasizes that a fair and sustainable payment system is necessary for the future of the web, without dependence on advertising."
+      }
+    },
+    {
+      "id": "CE-WN",
+      "title": "Beyond Tweening",
+      "speaker": "Cassie Evans",
+      "type": "Weekly Nerd",
+      "date": "07 maart 2025",
+      "dateObj": "2025-03-07",
+      "content": {
+        "summary": "Cassie Evans explores the advanced capabilities of GSAP, a powerful JavaScript animation library. She emphasizes that GSAP is more than just tweening, offering a comprehensive toolkit for creating complex and precise animations without sacrificing performance.",
+        "features": [
+          {
+            "title": "Timelines",
+            "description": "For creating structured, complex animation sequences"
+          },
+          {
+            "title": "QuickSetters",
+            "description": "For improved browser performance"
+          },
+          {
+            "title": "GSAP Utils",
+            "description": "Functions like random(), mapRange(), and wrap() for dynamic animations"
+          },
+          {
+            "title": "Modifiers",
+            "description": "For real-time adjustment of variables in animations"
+          },
+          {
+            "title": "Easing",
+            "description": "Critical for smooth movements (with an Ease Visualizer available on the GSAP site)"
+          },
+          {
+            "title": "matchMedia()",
+            "description": "For creating media query-based animations"
+          },
+          {
+            "title": "OnMouse and Drag Events",
+            "description": "Built-in event handling for interactive animations"
+          },
+          {
+            "title": "MotionPath Helper",
+            "description": "For visual editing of animation paths directly in the browser"
+          }
+        ],
+        "conclusion": "GSAP provides a flexible toolbox that allows users to build more complex and precise animations without losing performance benefits."
+      }
+    },
+    {
+      "id": "NB-GD",
+      "title": "Frontend Designer at 9elements",
+      "speaker": "Nils Binder",
+      "type": "Guest Teacher",
+      "date": "10 maart 2025",
+      "dateObj": "2025-03-10",
+      "content": {
+        "summary": "Nils Binder is a German frontend designer at 9elements with expertise in communication design, product development, and web development. His focus is on the interplay between mathematics and design, typography, and CSS structures.",
+        "sections": [
+          {
+            "title": "Professional Background",
+            "description": "Nils began his career working in Photoshop but has now fully transitioned to Figma due to its code-based features, such as drop shadows and auto-layout (comparable to display: flex in CSS).",
+            "span": 2
+          },
+          {
+            "title": "Design Philosophy",
+            "description": "In his work, he experiments with various CSS solutions, seeking a balance between clarity and efficiency. He draws inspiration from \"A Dao of Web Design\" by Jon Allsopp.",
+            "span": 1
+          },
+          {
+            "title": "Technical Exploration",
+            "description": "Nils experiments with flexible units, ranging from px and em to svw and container queries. He often finds the proper size and display of wrapper elements challenging.",
+            "span": 1
+          },
+          {
+            "title": "Future Direction",
+            "description": "Although he hasn't worked with mobile-first design commercially, he's open to experimenting with it. Currently, his clients don't prioritize mobile designs, but he's eager to explore beyond standard stacked layouts in future projects.",
+            "span": 2
+          }
+        ]
+      }
+    },
+    {
+        "id": "JM-GD",
+        "title": "Pure CSS Art and Animation",
+        "speaker": "Julia Miocene",
+        "type": "Guest Teacher",
+        "date": "15 maart 2025",
+        "dateObj": "2025-03-15",
+        "content": {
+          "summary": "Julia Miocene is a talented UX Engineer at GitLab, working on the UX Paper Cuts team. She is also a Google Developer Expert, Women Techmakers Ambassador, YouTuber, and a renowned artist in the world of Pure CSS Art, especially known for her cartoony style creations.",
+          "sections": [
+            {
+              "title": "CSS Wizardry",
+              "description": "Julia is a true wizard with CSS, often pushing the boundaries of what's possible by using unconventional techniques—like crafting triangles using borders or experimenting with complex shapes and animations entirely in CSS. Her work frequently appears on platforms like CodePen, where she shares creative and technically impressive results.",
+              "span": 2
+            },
+            {
+              "title": "Reflection Process",
+              "description": "What sets Julia apart is not just her creativity but also her rigorous reflection and iteration process. She's not afraid to experiment, but she carefully evaluates her work afterwards, identifying techniques that might lead to performance issues and consciously choosing not to reuse them.",
+              "span": 1
+            },
+            {
+              "title": "Animation Philosophy",
+              "description": "Julia emphasizes the importance of holistic motion design. Instead of animating components in isolation, she considers the entire interface, ensuring all animations work together cohesively. She brings in principles from the real world—like foreground objects moving faster than those in the background—to make animations feel more natural.",
+              "span": 1
+            },
+            {
+              "title": "Practical Approach",
+              "description": "She advises building animated objects by first identifying their structural elements: what belongs together, what needs to be a parent-child relationship, and mirroring that in the HTML. This logical foundation makes animating more intuitive and manageable. A fun fact: Julia has even discovered that CSS can be used inside emails, opening up creative possibilities in unexpected places.",
+              "span": 2
+            }
+          ]
+        }
+    },
+    {
+        "id": "RS-GD",
+        "title": "Circuit Bending",
+        "speaker": "Rosa Schuurmans",
+        "type": "Weekly Nerd",
+        "date": "03 april 2025",
+        "dateObj": "2025-04-03",
+        "content": {
+          "summary": "Rosa Schuurmans, an ex-CMD student involved with the Repair Café movement, gave an inspiring lecture about circuit bending — the creative reuse and hacking of old electronic devices to create new, unexpected functions and sounds.",
+          "sections": [
+            {
+              "title": "Creative Experimentation",
+              "description": "Rosa demonstrated how important it is to experiment and think outside the box. She provided examples of how you can create unique interactive objects using simple tools like a soldering iron, old toy instruments, or discarded electronics.",
+              "span": 2
+            },
+            {
+              "title": "Technological Independence",
+              "description": "An important theme in her talk was technological independence. Rosa encouraged us to think platform-agnostically: ensure your creations aren't dependent on big tech companies or closed systems. By breaking open devices and reshaping them, you take back control over technology and stimulate your own creativity and technical insight.",
+              "span": 1
+            },
+            {
+              "title": "Repair Café Philosophy",
+              "description": "She emphasized the importance of the Repair Café philosophy: don't immediately throw something away when it breaks, but see if you can repair it or transform it into something new. This mentality contributes to sustainability and innovation.",
+              "span": 1
+            },
+            {
+              "title": "Call to Action",
+              "description": "Finally, the presentation was above all a call to action: \"Pick up the soldering iron and start hacking!\" Dare to tinker, learn by doing, and have fun with the unexpected.",
+              "span": 2
+            }
+          ]
+        }
+    },
+    {
+      "id": "JK-WN",
+      "title": "Declarative vs Imperative: Two Mindsets for Building the Web",
+      "speaker": "Jeremy Keith",
+      "type": "Weekly Nerd",
+      "date": "19 maart 2025",
+      "dateObj": "2025-03-19",
+      "content": {
+        "summary": "In 'Declarative Design', Jeremy Keith explores the philosophical and practical differences between declarative and imperative programming—two fundamental approaches to solving problems in code.",
+        "sections": [
+          {
+            "title": "Two Programming Paradigms",
+            "description": "The imperative style is like reading sheet music or following a recipe: you describe step by step how something should happen. This is common in languages like JavaScript, where one wrong step can stop the entire process. It gives developers explicit control, but also a higher chance of error. The declarative style is more like jamming with a band—you focus on the desired outcome, and the system figures out how to make it happen.",
+            "span": 2
+          },
+          {
+            "title": "Web Evolution",
+            "description": "These mindsets shaped how the World Wide Web evolved: HTML was the starting point—a declarative language that defines structure. CSS followed—a declarative way to suggest styles. JavaScript then introduced imperative control—telling the browser exactly what to do and when.",
+            "span": 1
+          },
+          {
+            "title": "CSS Power",
+            "description": "Although CSS is declarative, it still offers significant control through advanced tools like min(), max(), clamp(), fit-content, and calc(). So, declarative doesn't mean 'less power'—just a different kind of power.",
+            "span": 1
+          },
+          {
+            "title": "Context Matters",
+            "description": "Whether declarative is 'better' than imperative depends entirely on the context. Imperative systems offer more structure and control, which can be helpful in tightly managed environments. Declarative systems offer flexibility and abstraction, often leading to simpler and more maintainable code.",
+            "span": 2
+          }
+        ],
+        "resources": [
+          "Every Layout – deep dives into layout patterns using declarative principles",
+          "Layout Land on YouTube – great video tutorials on CSS and layout design",
+          "Build Excellent Websites – a philosophy-first approach to building for the web"
+        ]
+      }
+    },
+    {
+      "id": "JK-GD",
+      "title": "Web Developer & Author",
+      "speaker": "Jeremy Keith",
+      "type": "Guest Teacher",
+      "date": "20 maart 2025",
+      "dateObj": "2025-03-20",
+      "content": {
+        "summary": "Jeremy Keith is an Irish web developer and author known for his sharp insights into the evolution of the web. He speaks at conferences worldwide about web development and has written influential books such as 'DOM Scripting' (2005), 'Bulletproof Ajax', and 'HTML5 for Web Designers'. Jeremy has a great passion for the history of the web and enjoys seeing how HTML, CSS, and JavaScript have evolved over the years.",
+        "sections": [
+          {
+            "title": "Vision on Web Development",
+            "description": "According to Jeremy, web development is most powerful when approached in three steps: 1) What is the core functionality? 2) What is the simplest technology to achieve that? 3) Let's enhance it! (Progressive enhancement). The first two steps ensure broad accessibility (including people with slower connections or more limited devices), while step three provides room to add extra functionality for users with modern browsers.",
+            "span": 2
+          },
+          {
+            "title": "Design Principles",
+            "description": "Jeremy adheres to principles like the Robustness Principle (Postel's Law): 'Be conservative in what you send, be liberal in what you accept.' HTML and CSS follow this thinking: even if you make a mistake, the browser tries to display the content as best as possible. He also follows the Rule of Least Power: Choose the least powerful language that can still perform a task, ensuring more stability, security, and reusability.",
+            "span": 2
+          },
+          {
+            "title": "Web Standards Evolution",
+            "description": "Jeremy often discusses how functionalities that were once exclusive to JavaScript are increasingly shifting to HTML and CSS. Think of form validation, animations, and interactive elements.",
+            "span": 1
+          },
+          {
+            "title": "Browser Storage Options",
+            "description": "He mentions various ways to store data in the browser: Cookies, localStorage, sessionStorage, IndexedDB, and Cache API (the most performant option).",
+            "span": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "NL-WN",
+      "title": "Geld verdienen met Project Fugu",
+      "speaker": "Niels Leenheer",
+      "type": "Weekly Nerd",
+      "date": "24 maart 2025",
+      "dateObj": "2025-03-24",
+      "content": {
+        "summary": "Niels Leenheer presented how to build a cash register system using web technology, focusing on Google's Project Fugu that extends web technology with powerful APIs to give web apps access to hardware like printers, scanners, and payment terminals.",
+        "sections": [
+          {
+            "title": "Project Fugu & Real-World Applications",
+            "description": "Project Fugu is a Google initiative that extends web technologies with powerful APIs, giving web apps access to hardware like printers, scanners, and payment terminals. Niels demonstrated this through Salon Hub, a hair salon appointment and cash register system built with web technologies, potentially also offering internships.",
+            "span": 2
+          },
+          {
+            "title": "Building Blocks",
+            "description": "These systems are built with Electron for desktop apps, Progressive Web Apps (PWAs) that also work on tablets like Android, and Project Fugu APIs that enable communication with peripherals.",
+            "span": 1
+          },
+          {
+            "title": "Receipt Printers",
+            "description": "These work via WebUSB (only in Chromium browsers). You need to communicate with the printer using ASCII commands, but ASCII is outdated—Unicode is now the standard. Every printer speaks a different 'language', requiring specific code per printer. Future solution: Use WebSerial or WebBluetooth → more reliable & universal.",
+            "span": 1
+          },
+          {
+            "title": "Peripheral Devices",
+            "description": "Customer displays communicate via ESC/POS (old protocol, boring but still widely used). WebSerial is a modern solution to control these. Barcode scanners behave like keyboards (typing numbers + enter) and support multiple types of barcodes including GTIN. QR codes work similarly to barcodes but often lead to URLs, which cash register systems typically ignore.",
+            "span": 2
+          }
+        ],
+        "conclusion": "The main lesson: building a cash register system with web technology is possible thanks to modern Web APIs (Project Fugu). It's technically challenging, but thanks to Niels' open source work, you don't have to reinvent the wheel. Thanks to nerds like Niels, we'll soon be able to build cash registers in the browser."
+      }
+    },
+    {
+      "id": "IDEA11Y-WN",
+      "title": "IDEA11Y Meetup — Inclusive Design & Accessibility in Practice",
+      "speaker": "Erik Kroes, Anastasia, Nienke de Keijzer",
+      "type": "Weekly Nerd",
+      "date": "28 maart 2025",
+      "dateObj": "2025-03-28",
+      "content": {
+        "summary": "As part of the CN Donderdagen series and the Weekly Nerd program, this special English-language edition focused on accessibility (a11y) in digital design. The event featured multiple speakers sharing insights on implementing inclusive design principles and practical WCAG fixes.",
+        "introduction": "The vision behind CN Donderdagen is to critically explore the role of design today — by hosting talks and inviting experts to help collectively question, reflect, and maybe even get closer to the one true answer. This event marked the first English-language talk in the series, opening the conversation to an international perspective on inclusive design.",
+        "speakers": [
+          {
+            "name": "Erik Kroes",
+            "title": "Practical Fixes for Common WCAG Failures",
+            "role": "Accessibility specialist and advocate",
+            "topics": [
+              {
+                "title": "Keyboard Navigation",
+                "details": "\"If you can't use a site without a mouse, you can't use it at all.\" Tab should take you to every interactive element. Shift + Tab goes backwards. Make sure you include a skip link to bypass repetitive navigation. Always define a clear focus state — users need to see where they are. Avoid using generic <div> elements as buttons unless they are properly labeled for screen readers."
+              },
+              {
+                "title": "Contrast",
+                "details": "Even users with good eyesight struggle with poor contrast — especially in bright environments. Target contrast ratio: at least 3:1. Watch out for low-contrast placeholders, branding colors, and hover/active states. All major browsers now support contrast-checking tools."
+              },
+              {
+                "title": "Alternatives",
+                "details": "Provide accessible alternatives for non-text content: Alt text for images, captions and transcripts for video and audio, meaningful labels and descriptions for assistive technologies."
+              },
+              {
+                "title": "Sizing",
+                "details": "Design with flexibility. Let users adjust text and interface sizes without breaking the layout. Use relative units (like em, rem, %) instead of fixed pixels where possible."
+              }
+            ]
+          },
+          {
+            "name": "Anastasia",
+            "title": "Beyond WCAG: Broader Perspectives on Inclusion",
+            "details": "Accessibility isn't just checkboxes — it's about understanding different abilities, contexts, and cultures. Ask: Who is left out when we design this way?"
+          },
+          {
+            "name": "Nienke de Keijzer",
+            "title": "Thinking Outside the Accessibility Box",
+            "details": "Design systems with morphing needs in mind. Include neurodiversity, temporary impairments, and edge cases. Move from compliance → to compassion."
+          }
+        ],
+        "takeaways": [
+          "Think declaratively: structure your HTML meaningfully before adding interactivity",
+          "Start simple: build a strong, accessible core — then enhance",
+          "Always test your work with keyboard navigation and screen reader tools",
+          "Accessibility isn't a blocker — it's a creative constraint"
+        ],
+        "conclusion": "Accessibility is not a bonus feature. It's the foundation of good digital design."
+      }
+    }
+      
+  ]
