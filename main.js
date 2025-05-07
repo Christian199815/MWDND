@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
     dateToggle.classList.add('active', 'desc');
   }
 
+  function getElement(selector) {
+    const element = document.querySelector(selector);
+    if (!element) console.warn(`Element with selector "${selector}" not found`);
+    return element;
+}
+
   // Event listeners for toggle buttons
   toggleButtons.forEach(button => {
     button.addEventListener('click', () => {
