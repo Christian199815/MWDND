@@ -83,19 +83,16 @@
         <section id="goalContent">
           <h2>Minor Goals</h2>
           <p>
-            Leren zonder doel, is een lastig pakket. Wat wil je doen? waar wil
-            je beter in worden?
+            Learning without a goal is a tough situation. What do you want to do? What do you want to get better at?
           </p>
           <a href="">More Goals</a>
         </section>
-
+    
         <section id="goalCards">
           <article class="goalCard">
-            <h3>Digital Comfortzone</h3>
+            <h3>Digital Comfort Zone</h3>
             <p>
-              Mezelf uitdagen door uit mijn digitale comfortzone te stappen om
-              de (voor mij) meest extreem complexe frontend constructies te
-              maken
+              Challenging myself by stepping out of my digital comfort zone to create (what I consider) extremely complex frontend constructions.
             </p>
             <svg
               width="61"
@@ -117,9 +114,7 @@
           <article class="goalCard">
             <h3>Minimal Power</h3>
             <p>
-              Opzoek gaan naar de outskirts van wat mogelijk is op zo minimaal
-              krachtige computers maar met de meest machtige website structuren
-              in de basis codeer talen.
+              Exploring the outskirts of what's possible on minimally powerful computers, using the most powerful website structures in the core coding languages.
             </p>
             <svg
               width="61"
@@ -136,15 +131,13 @@
                 stroke-linejoin="round"
               />
             </svg>
-
+    
             <hr class="solid" />
           </article>
           <article class="goalCard">
-            <h3>Powerfull Feedback</h3>
+            <h3>Powerful Feedback</h3>
             <p>
-              Feedback geven en ontvangen kan altijd beter, hierin merk ik dat
-              ik zeker nog kan groeien.
-
+              Giving and receiving feedback can always improve. I’ve noticed I definitely still have room to grow here.
               <svg
                 width="61"
                 height="47"
@@ -161,14 +154,13 @@
                 />
               </svg>
             </p>
-
+    
             <hr class="solid" />
           </article>
           <article class="goalCard">
             <h3>Inclusivity</h3>
             <p>
-              De web projecten die ik ontwikkel inclusiever maken, maar al
-              eerder binnen het bouw proces.
+              Making the web projects I develop more inclusive—starting much earlier in the building process.
             </p>
             <svg
               width="61"
@@ -185,20 +177,21 @@
                 stroke-linejoin="round"
               />
             </svg>
-
+    
             <hr class="solid" />
           </article>
         </section>
       </div>
     </section>
+    
 
     <section id="WN">
       <div class="border-box">
         <span class="border-content">Weekly Nerd</span>
       </div>
-      <section id="intro">
+      <section>
         <h2>Weekly Nerds & Guest Teachers</h2>
-        <p>intro tekstje</p>
+        <p>New knowledge about anything we could know</p>
       </section>
       <section class="wn-controls">
         <div class="control-group">
@@ -289,12 +282,61 @@
 
       <section class="wn-list-container">
         <ul class="wn-list">
-          <!-- Loading state will appear here until data is loaded -->
+          <!-- Items will be inserted here by JavaScript -->
+        </ul>
+        
+        <!-- Templates for dynamic content -->
+        <template id="loading-template">
           <div class="loading-state">
             <div class="loading-spinner"></div>
             <p>Loading speakers...</p>
           </div>
-        </ul>
+        </template>
+        
+        <template id="empty-template">
+          <div class="empty-state">
+            <h3>No items found</h3>
+            <p>Try changing your filter settings</p>
+          </div>
+        </template>
+        
+        <template id="error-template">
+          <div class="empty-state">
+            <h3>Error loading data</h3>
+            <p>Please check your network connection and try again.</p>
+            <button id="retry-button" class="control-button">Retry</button>
+          </div>
+        </template>
+        
+        <template id="list-item-template">
+          <li>
+            <button>
+              <div>
+                <h4></h4>
+                <p></p>
+              </div>
+              <h3></h3>
+            </button>
+            <div popover></div>
+          </li>
+        </template>
+        
+        <template id="popover-template">
+          <div class="bento-container">
+            <div class="bento-header">
+              <h2></h2>
+              <h3></h3>
+            </div>
+            <div class="bento-meta">
+              <p></p>
+              <p></p>
+            </div>
+            <div class="bento-content">
+              <p></p>
+              <!-- Additional content will be inserted here -->
+            </div>
+          </div>
+        </template>
       </section>
     </section>
 
@@ -302,14 +344,14 @@
       <div class="border-box">
         <span class="border-content">Classes</span>
       </div>
-      <section id="intro">
+      <section>
         <h2>Zie hier de projecten die ik heb gedaan voor deze minor</h2>
-        <p>Elk project word afgesloten met een digitaal product/p></p>
+        <p>Elk project word afgesloten met een digitaal product</p>
       </section>
       <section>
         <a href="https://christian199815.github.io/MWDND-WAFS/" target="_blank">
           <figure>
-            <img src="img/wafs-cover.png" alt="project foto van WAFS" />
+            <img src="./img/wafs-cover.png" alt="cover for the WAFS project" />
             <figcaption>
               <h3>WAFS</h3>
               <ul>
@@ -323,7 +365,7 @@
         </a>
         <a href="https://christian199815.github.io/MWDND-BT/" target="_blank">
           <figure>
-            <img src="" alt="" />
+            <img src="./img/BT.png" alt="cover for the Browser Tech class" />
             <figcaption>
               <h3>Browser Technology</h3>
               <ul>
@@ -331,13 +373,13 @@
                 <li>HTML</li>
                 <li>CSS</li>
               </ul>
-              <img src="" alt="" />
+              <img src="img/arrow.png" alt="arrow icon" />
             </figcaption>
           </figure>
         </a>
         <a href="https://christian199815.github.io/MWDND-CSS/" target="_blank">
           <figure>
-            <img src="" alt="" />
+            <img src="./img/CSS.png" alt="cover for the CSS to the Rescue class" />
             <figcaption>
               <h3>CSS To The Rescue</h3>
               <ul>
@@ -345,49 +387,49 @@
                 <li>CSS</li>
                 <li>No JS</li>
               </ul>
-              <img src="" alt="" />
+              <img src="img/arrow.png" alt="arrow icon" />
             </figcaption>
           </figure>
         </a>
-        <a href="">
+        <a href="https://mwdnd-api.onrender.com/">
           <figure>
-            <img src="" alt="" />
+            <img src="./img/API.png" alt="Cover for the API class" />
             <figcaption>
-              <h3></h3>
+              <h3>API</h3>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Ticketmaster</li>
+                <li>OpenStreetMap</li>
+                <li>Leaflet</li>
               </ul>
-              <img src="" alt="" />
+              <img src="img/arrow.png" alt="arrow icon" />
             </figcaption>
           </figure>
         </a>
-        <a href="">
+        <a href="https://christian199815.github.io/MWDND-HCD/">
           <figure>
-            <img src="" alt="" />
+            <img src="./img/HCD.png" alt="cover for the HCD class" />
             <figcaption>
-              <h3></h3>
+              <h3>Human Centered Design</h3>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Real user</li>
+                <li>Custom Build</li>
+                <li>Epic User Testing</li>
               </ul>
-              <img src="" alt="" />
+              <img src="img/arrow.png" alt="arrow icon" />
             </figcaption>
           </figure>
         </a>
-        <a href="">
+        <a href="https://christian199815.github.io/MWDND-WoW/">
           <figure>
-            <img src="" alt="" />
+            <img src="./img/hackathon/home.png" alt="cover of Hackathon project" />
             <figcaption>
-              <h3></h3>
+              <h3>Hackathon</h3>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Short</li>
+                <li>High intensity</li>
+                <li>Team Work</li>
               </ul>
-              <img src="" alt="" />
+              <img src="img/arrow.png" alt="arrow icon" />
             </figcaption>
           </figure>
         </a>
@@ -400,7 +442,9 @@
         <span class="border-content">Hackathon</span>
       </div>
       <section>
-        <h2>World of Women in Tech</h2>
+        <a href="https://christian199815.github.io/MWDND-WoW/">
+          <h2>World of Women in Tech</h2>
+        </a>
         <p>
           An ode to the pioneering women who shaped the technology landscape
         </p>
@@ -609,23 +653,29 @@
               <h4>Phone number</h4>
               <p>+31 6 12345678</p>
             </li>
+
+            <li>
+
+            </li>
           </ul>
 
-          <section id="externals">
-            <ul>
-              <li>insta</li>
-              <li>linkedin</li>
-              <li>github</li>
-            </ul>
+         
+        </section>
+        <hr>
+        <section id="externals">
+          <ul>
+            <li>insta</li>
+            <li>linkedin</li>
+            <li>github</li>
+          </ul>
 
-            <ul>
-              <li>hva</li>
-              <li>Minor WD&D</li>
-            </ul>
-          </section>
+          <ul>
+            <li>hva</li>
+            <li>Minor WD&D</li>
+          </ul>
         </section>
         <hr />
-        <p>All Rights Reserved ©ChrisDonker</p>
+        <p>All Rights Reserved © ChrisDonker</p>
       </section>
     </footer>
   </body>

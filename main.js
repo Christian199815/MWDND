@@ -1,8 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
   // DOM elements
-  const listContainer = document.querySelector('.wn-list');
+  const listContainer = getElement('.wn-list');
   const filterButtons = document.querySelectorAll('.control-button[data-filter]');
   const toggleButtons = document.querySelectorAll('.toggle-button');
+  
+  // Templates
+  const loadingTemplate = getElement('#loading-template');
+  const emptyTemplate = getElement('#empty-template');
+  const errorTemplate = getElement('#error-template');
+  const listItemTemplate = getElement('#list-item-template');
+  const popoverTemplate = getElement('#popover-template');
 
   // Current state
   let currentSort = { type: 'date', direction: 'desc' }; // Unified sort state
@@ -10,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let items = []; // Will hold our data
 
   // Initialize date toggle as active and descending (newest first)
-  const dateToggle = document.querySelector('[data-toggle="date"]');
+  const dateToggle = getElement('[data-toggle="date"]');
   if (dateToggle) {
     dateToggle.classList.add('active', 'desc');
   }
@@ -49,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
       renderList();
     });
   });
+
   // Event listeners for filter buttons
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -96,63 +104,73 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-
     // Check if there are no items after filtering
     if (sortedItems.length === 0) {
-      const emptyState = document.createElement('div');
-      emptyState.classList.add('empty-state');
-      emptyState.innerHTML = `
-        <h3>No items found</h3>
-        <p>Try changing your filter settings</p>
-      `;
-      listContainer.appendChild(emptyState);
+      const emptyNode = emptyTemplate.content.cloneNode(true);
+      listContainer.appendChild(emptyNode);
       return;
     }
 
     // Add items to the list
     sortedItems.forEach((item, index) => {
-      const li = document.createElement('li');
+      const itemNode = listItemTemplate.content.cloneNode(true);
+      const li = itemNode.querySelector('li');
+      
+      // Set animation delay
       li.style.animationDelay = `${index * 0.05}s`;
-
-      li.innerHTML = `
-        <button popovertarget="${item.id}">
-          <div>
-            <h4>"${item.title}" by <strong>${Array.isArray(item.speaker) ? item.speaker.join(', ') : item.speaker}</strong></h4>
-            <p>${item.type}</p>
-          </div>
-          <h3>${item.date}</h3>
-        </button>
-        <div popover id="${item.id}">
-          ${renderPopoverContent(item)}
-        </div>
-      `;
-
-      listContainer.appendChild(li);
+      
+      // Configure item content
+      const button = li.querySelector('button');
+      button.setAttribute('popovertarget', item.id);
+      
+      // Set title and speaker
+      const h4 = button.querySelector('h4');
+      h4.textContent = `"${item.title}" by `;
+      const strong = document.createElement('strong');
+      strong.textContent = Array.isArray(item.speaker) ? item.speaker.join(', ') : item.speaker;
+      h4.appendChild(strong);
+      
+      // Set type and date
+      button.querySelector('div p').textContent = item.type;
+      button.querySelector('h3').textContent = item.date;
+      
+      // Configure popover
+      const popover = li.querySelector('[popover]');
+      popover.id = item.id;
+      
+      // Add popover content
+      createPopoverContent(popover, item);
+      
+      // Add to container
+      listContainer.appendChild(itemNode);
     });
 
     // Update container height
     updateContainerHeight();
   }
 
-  // Unified renderPopoverContent function (keep only this one)
-  function renderPopoverContent(item) {
-    let popoverContent = `
-      <div class="bento-container">
-        <div class="bento-header">
-          <h2>${item.title}</h2>
-          <h3>${Array.isArray(item.speaker) ? item.speaker.join(', ') : item.speaker}</h3>
-        </div>
-        <div class="bento-meta">
-          <p>${item.type}</p>
-          <p>${item.date}</p>
-        </div>
-        <div class="bento-content">
-          <p>${item.content.summary}</p>
-    `;
-
+  // Function to create popover content
+  function createPopoverContent(popoverElement, item) {
+    // Clone the basic template
+    const popoverContent = popoverTemplate.content.cloneNode(true);
+    
+    // Set basic info
+    popoverContent.querySelector('.bento-header h2').textContent = item.title;
+    popoverContent.querySelector('.bento-header h3').textContent = 
+      Array.isArray(item.speaker) ? item.speaker.join(', ') : item.speaker;
+    const metaP = popoverContent.querySelectorAll('.bento-meta p');
+    metaP[0].textContent = item.type;
+    metaP[1].textContent = item.date;
+    popoverContent.querySelector('.bento-content p').textContent = item.content.summary;
+    
+    // Create container for additional content
+    const contentContainer = popoverContent.querySelector('.bento-content');
+    
     // Add introduction if it exists (for multi-speaker events)
     if (item.content.introduction) {
-      popoverContent += `<p>${item.content.introduction}</p>`;
+      const introP = document.createElement('p');
+      introP.textContent = item.content.introduction;
+      contentContainer.appendChild(introP);
     }
 
     // For items with standard sections format (most entries)
@@ -162,37 +180,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (hasBentoGrid) {
         // For bento grid layout (Nils Binder, Julia Miocene, etc.)
-        popoverContent += `<div class="bento-grid">`;
+        const bentoGrid = document.createElement('div');
+        bentoGrid.className = 'bento-grid';
 
         item.content.sections.forEach(section => {
-          popoverContent += `
-            <div class="bento-box ${section.span === 2 ? 'span-2' : ''}">
-              <h4>${section.title}</h4>
-              <p>${section.description}</p>
-            </div>
-          `;
+          const bentoBox = document.createElement('div');
+          bentoBox.className = 'bento-box';
+          if (section.span === 2) {
+            bentoBox.classList.add('span-2');
+          }
+
+          const h4 = document.createElement('h4');
+          h4.textContent = section.title;
+          bentoBox.appendChild(h4);
+
+          const p = document.createElement('p');
+          p.textContent = section.description;
+          bentoBox.appendChild(p);
+
+          bentoGrid.appendChild(bentoBox);
         });
 
-        popoverContent += `</div>`;
+        contentContainer.appendChild(bentoGrid);
       } else {
         // For sections with lists (PP Koch)
         item.content.sections.forEach(section => {
-          popoverContent += `
-            <div class="highlight">
-              <p>${section.title}</p>
-            </div>
-          `;
+          const highlight = document.createElement('div');
+          highlight.className = 'highlight';
+          const p = document.createElement('p');
+          p.textContent = section.title;
+          highlight.appendChild(p);
+          contentContainer.appendChild(highlight);
 
           if (section.items && section.items.length > 0) {
-            popoverContent += `<ul>`;
+            const ul = document.createElement('ul');
+            
             section.items.forEach(item => {
-              popoverContent += `
-                <li><strong>${item.title}:</strong> ${item.description}</li>
-              `;
+              const li = document.createElement('li');
+              const strong = document.createElement('strong');
+              strong.textContent = `${item.title}: `;
+              li.appendChild(strong);
+              li.appendChild(document.createTextNode(item.description));
+              ul.appendChild(li);
             });
-            popoverContent += `</ul>`;
+            
+            contentContainer.appendChild(ul);
           } else {
-            popoverContent += `<p>${section.description || ''}</p>`;
+            const sectionP = document.createElement('p');
+            sectionP.textContent = section.description || '';
+            contentContainer.appendChild(sectionP);
           }
         });
       }
@@ -202,130 +238,177 @@ document.addEventListener('DOMContentLoaded', function () {
     if (item.content.features) {
       if (item.id === "CE-WN") {
         // Cassie Evans with feature grid
-        popoverContent += `
-          <div class="highlight">
-            <p>Key GSAP features highlighted in the presentation:</p>
-          </div>
-          <div class="feature-grid">
-        `;
+        const highlight = document.createElement('div');
+        highlight.className = 'highlight';
+        const p = document.createElement('p');
+        p.textContent = 'Key GSAP features highlighted in the presentation:';
+        highlight.appendChild(p);
+        contentContainer.appendChild(highlight);
+
+        const featureGrid = document.createElement('div');
+        featureGrid.className = 'feature-grid';
 
         item.content.features.forEach(feature => {
-          popoverContent += `
-            <div class="feature-card">
-              <h4>${feature.title}</h4>
-              <p>${feature.description}</p>
-            </div>
-          `;
+          const featureCard = document.createElement('div');
+          featureCard.className = 'feature-card';
+          
+          const h4 = document.createElement('h4');
+          h4.textContent = feature.title;
+          featureCard.appendChild(h4);
+          
+          const featureP = document.createElement('p');
+          featureP.textContent = feature.description;
+          featureCard.appendChild(featureP);
+          
+          featureGrid.appendChild(featureCard);
         });
 
-        popoverContent += `</div>`;
+        contentContainer.appendChild(featureGrid);
       } else {
         // Kilian Valkhof format with list
-        popoverContent += `
-          <div class="highlight">
-            <p>${item.content.highlights[0]}</p>
-          </div>
-          <ul>
-        `;
+        const highlight = document.createElement('div');
+        highlight.className = 'highlight';
+        const p = document.createElement('p');
+        p.textContent = item.content.highlights[0];
+        highlight.appendChild(p);
+        contentContainer.appendChild(highlight);
 
+        const ul = document.createElement('ul');
+        
         item.content.features.forEach(feature => {
-          popoverContent += `
-            <li><strong>${feature.title}:</strong> ${feature.description}</li>
-          `;
+          const li = document.createElement('li');
+          const strong = document.createElement('strong');
+          strong.textContent = `${feature.title}: `;
+          li.appendChild(strong);
+          li.appendChild(document.createTextNode(feature.description));
+          ul.appendChild(li);
         });
-
-        popoverContent += `</ul>`;
+        
+        contentContainer.appendChild(ul);
       }
     }
 
     // For multi-speaker events like IDEA11Y
     if (item.content.speakers) {
-      popoverContent += `<div class="speakers-section">`;
+      const speakersSection = document.createElement('div');
+      speakersSection.className = 'speakers-section';
 
       item.content.speakers.forEach(speaker => {
-        popoverContent += `
-          <div class="speaker-card">
-            <h3>${speaker.name}</h3>
-            <h4>${speaker.title}</h4>
-            ${speaker.role ? `<p class="speaker-role">${speaker.role}</p>` : ''}
-        `;
+        const speakerCard = document.createElement('div');
+        speakerCard.className = 'speaker-card';
+        
+        const h3 = document.createElement('h3');
+        h3.textContent = speaker.name;
+        speakerCard.appendChild(h3);
+        
+        const h4 = document.createElement('h4');
+        h4.textContent = speaker.title;
+        speakerCard.appendChild(h4);
+        
+        if (speaker.role) {
+          const roleP = document.createElement('p');
+          roleP.className = 'speaker-role';
+          roleP.textContent = speaker.role;
+          speakerCard.appendChild(roleP);
+        }
 
         // If speaker has topics
         if (speaker.topics && speaker.topics.length > 0) {
-          popoverContent += `<div class="topic-list">`;
+          const topicList = document.createElement('div');
+          topicList.className = 'topic-list';
 
           speaker.topics.forEach(topic => {
-            popoverContent += `
-              <div class="topic-item">
-                <h5>${topic.title}</h5>
-                <p>${topic.details}</p>
-              </div>
-            `;
+            const topicItem = document.createElement('div');
+            topicItem.className = 'topic-item';
+            
+            const h5 = document.createElement('h5');
+            h5.textContent = topic.title;
+            topicItem.appendChild(h5);
+            
+            const topicP = document.createElement('p');
+            topicP.textContent = topic.details;
+            topicItem.appendChild(topicP);
+            
+            topicList.appendChild(topicItem);
           });
 
-          popoverContent += `</div>`;
+          speakerCard.appendChild(topicList);
         } else if (speaker.details) {
           // If speaker has simple details
-          popoverContent += `<p>${speaker.details}</p>`;
+          const detailsP = document.createElement('p');
+          detailsP.textContent = speaker.details;
+          speakerCard.appendChild(detailsP);
         }
 
-        popoverContent += `</div>`;
+        speakersSection.appendChild(speakerCard);
       });
 
-      popoverContent += `</div>`;
+      contentContainer.appendChild(speakersSection);
     }
 
     // For items with resource lists (Jeremy Keith)
     if (item.content.resources) {
-      popoverContent += `
-        <div class="highlight">
-          <p>Resources:</p>
-        </div>
-        <ul class="resources-list">
-      `;
+      const highlight = document.createElement('div');
+      highlight.className = 'highlight';
+      const p = document.createElement('p');
+      p.textContent = 'Resources:';
+      highlight.appendChild(p);
+      contentContainer.appendChild(highlight);
 
+      const ul = document.createElement('ul');
+      ul.className = 'resources-list';
+      
       item.content.resources.forEach(resource => {
-        popoverContent += `<li>${resource}</li>`;
+        const li = document.createElement('li');
+        li.textContent = resource;
+        ul.appendChild(li);
       });
-
-      popoverContent += `</ul>`;
+      
+      contentContainer.appendChild(ul);
     }
 
     // For items with takeaways (IDEA11Y)
     if (item.content.takeaways) {
-      popoverContent += `
-        <div class="highlight">
-          <p>Key Takeaways:</p>
-        </div>
-        <ul class="takeaways-list">
-      `;
+      const highlight = document.createElement('div');
+      highlight.className = 'highlight';
+      const p = document.createElement('p');
+      p.textContent = 'Key Takeaways:';
+      highlight.appendChild(p);
+      contentContainer.appendChild(highlight);
 
+      const ul = document.createElement('ul');
+      ul.className = 'takeaways-list';
+      
       item.content.takeaways.forEach(takeaway => {
-        popoverContent += `<li>${takeaway}</li>`;
+        const li = document.createElement('li');
+        li.textContent = takeaway;
+        ul.appendChild(li);
       });
-
-      popoverContent += `</ul>`;
+      
+      contentContainer.appendChild(ul);
     }
 
     // Add any additional content
     if (item.content.challenges) {
-      popoverContent += `<p>${item.content.challenges}</p>`;
+      const challengesP = document.createElement('p');
+      challengesP.textContent = item.content.challenges;
+      contentContainer.appendChild(challengesP);
     }
 
     if (item.content.conclusion) {
-      popoverContent += `
-        <div class="conclusion">
-          <p><strong>Conclusion:</strong> ${item.content.conclusion}</p>
-        </div>
-      `;
+      const conclusion = document.createElement('div');
+      conclusion.className = 'conclusion';
+      const p = document.createElement('p');
+      const strong = document.createElement('strong');
+      strong.textContent = 'Conclusion: ';
+      p.appendChild(strong);
+      p.appendChild(document.createTextNode(item.content.conclusion));
+      conclusion.appendChild(p);
+      contentContainer.appendChild(conclusion);
     }
 
-    popoverContent += `
-        </div>
-      </div>
-    `;
-
-    return popoverContent;
+    // Append the complete popover content
+    popoverElement.appendChild(popoverContent);
   }
 
   // Function to update container height
@@ -352,13 +435,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Load data from JSON file
   function loadData() {
-    // Show loading state
-    listContainer.innerHTML = `
-      <div class="loading-state">
-        <div class="loading-spinner"></div>
-        <p>Loading speakers...</p>
-      </div>
-    `;
+    // Show loading state using template
+    listContainer.innerHTML = '';
+    const loadingNode = loadingTemplate.content.cloneNode(true);
+    listContainer.appendChild(loadingNode);
 
     // Fetch the JSON file
     fetch('weekly-nerd-data.json')
@@ -377,16 +457,17 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .catch(error => {
         console.error('Error loading data:', error);
-        listContainer.innerHTML = `
-          <div class="empty-state">
-            <h3>Error loading data</h3>
-            <p>Please check your network connection and try again.</p>
-            <button id="retry-button" class="control-button">Retry</button>
-          </div>
-        `;
+        
+        // Show error template
+        listContainer.innerHTML = '';
+        const errorNode = errorTemplate.content.cloneNode(true);
+        listContainer.appendChild(errorNode);
 
         // Add retry button event listener
-        document.getElementById('retry-button').addEventListener('click', loadData);
+        const retryButton = getElement('#retry-button');
+        if (retryButton) {
+          retryButton.addEventListener('click', loadData);
+        }
       });
   }
 

@@ -120,6 +120,8 @@ nav {
   right: 2em;
   box-sizing: border-box;
   z-index: 1000;
+  color: black;
+  
 
   ul {
     display: flex;
@@ -132,6 +134,8 @@ nav {
     border: 1px solid black;
     padding: 1em;
     width: 8em;
+
+    mix-blend-mode:darken;
   }
 }
 /* Header */
@@ -693,8 +697,30 @@ header {
     }
   }
 }
+#classes{
+
+  > section:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 2rem;
+
+    h2 {
+      font-weight: 500;
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    p {
+      font-weight: 200;
+      font-size: 1.2em;
+      margin: 0;
+    }
+  }
+
+
 /* Classes Section */
-#classes section:nth-of-type(2) {
+ section:nth-of-type(2) {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -769,6 +795,7 @@ header {
       opacity: 1 !important;
     }
   }
+}
 }
 #hackathon {
   display: flex;
@@ -992,13 +1019,11 @@ header {
     }
   }
 }
-
-
 /* Footer */
 footer {
   background-color: black;
   color: #fafafa;
-  height: 32em;
+  /* height: 32em; */
   position: relative;
   margin-top: 12em;
 
@@ -1009,7 +1034,7 @@ footer {
     left: -2em;
     position: absolute;
     background-color: black;
-    height: 32em;
+    /* height: 32em; */
 
     div {
       padding-top: 3em;
@@ -1019,7 +1044,6 @@ footer {
         font-weight: 300;
         font-size: 4.1em;
       }
-
       label {
         position: relative;
         display: inline-block;
@@ -1068,16 +1092,33 @@ footer {
           border-radius: 50%;
         }
       }
+    }
 
-      ul {
+    section:nth-of-type(1){
+      >ul {
         margin: 0;
-        width: calc(100% - 4em);
+        /* width: calc(100% - 4em); */
         list-style: none;
         display: flex;
         justify-content: space-between;
       }
+
     }
-  }
+
+    section:nth-of-type(2){
+      display: flex;
+      justify-content: space-between;
+      ul {
+        margin: 0;
+        /* width: calc(100% - 4em); */
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+    }
+    }
 }
 
 /* UI Components */
@@ -1087,6 +1128,10 @@ footer {
   border-radius: 8px;
   margin: 16px 0;
   border-left: 4px solid var(--primary-color);
+}
+
+hr{
+  margin: 1rem 0;
 }
 
 .feature-grid {
