@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Current state
   let currentSort = { type: 'date', direction: 'desc' }; // Unified sort state
   let currentFilter = 'all';
-  let items = []; // Will hold our data
+  let items = []; 
 
   // Initialize date toggle as active and descending (newest first)
   const dateToggle = getElement('[data-toggle="date"]');
@@ -26,7 +26,75 @@ document.addEventListener('DOMContentLoaded', function () {
     const element = document.querySelector(selector);
     if (!element) console.warn(`Element with selector "${selector}" not found`);
     return element;
-}
+  }
+
+  // Scroll lock variables
+  let scrollPosition = 0;
+  let isScrollLocked = false;
+
+  // Scroll lock functions
+  function preventDefault(e) {
+    e.preventDefault();
+  }
+
+  function preventDefaultForScrollKeys(e) {
+    // Only prevent if the target is not inside a popover
+    if (e.target.closest('[popover]')) return;
+    
+    const keys = { 37: 1, 38: 1, 39: 1, 40: 1, 32: 1, 33: 1, 34: 1, 35: 1, 36: 1 };
+    if (keys[e.keyCode]) {
+      preventDefault(e);
+      return false;
+    }
+  }
+
+  function preventScrollOutsidePopover(e) {
+    // Allow scrolling if the event target is inside a popover
+    if (e.target.closest('[popover]')) return;
+    
+    // Prevent scrolling outside of popovers
+    preventDefault(e);
+  }
+
+  function lockScroll() {
+    if (isScrollLocked) return;
+    
+    // Store current scroll position
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Apply styles to prevent background scroll
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+    
+    // Disable scroll on wheel/touch events outside popovers
+    document.addEventListener('wheel', preventScrollOutsidePopover, { passive: false });
+    document.addEventListener('touchmove', preventScrollOutsidePopover, { passive: false });
+    document.addEventListener('keydown', preventDefaultForScrollKeys, false);
+    
+    isScrollLocked = true;
+  }
+
+  function unlockScroll() {
+    if (!isScrollLocked) return;
+    
+    // Remove event listeners
+    document.removeEventListener('wheel', preventScrollOutsidePopover, { passive: false });
+    document.removeEventListener('touchmove', preventScrollOutsidePopover, { passive: false });
+    document.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+    
+    // Restore styles
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    
+    // Restore scroll position
+    window.scrollTo(0, scrollPosition);
+    
+    isScrollLocked = false;
+  }
 
   // Event listeners for toggle buttons
   toggleButtons.forEach(button => {
@@ -62,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
       renderList();
     });
   });
-
   // Event listeners for filter buttons
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -75,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
       renderList();
     });
   });
-
   // Function to render the list
   function renderList() {
     // Clear the list
@@ -144,6 +210,15 @@ document.addEventListener('DOMContentLoaded', function () {
       const popover = li.querySelector('[popover]');
       popover.id = item.id;
       
+      // Add popover event listeners for scroll lock
+      popover.addEventListener('beforetoggle', (event) => {
+        if (event.newState === 'open') {
+          lockScroll();
+        } else if (event.newState === 'closed') {
+          unlockScroll();
+        }
+      });
+      
       // Add popover content
       createPopoverContent(popover, item);
       
@@ -154,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update container height
     updateContainerHeight();
   }
-
   // Function to create popover content
   function createPopoverContent(popoverElement, item) {
     // Clone the basic template
@@ -416,12 +490,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Append the complete popover content
     popoverElement.appendChild(popoverContent);
   }
-
   // Function to update container height
   function updateContainerHeight() {
     document.getElementById('WN').style.height = 'auto';
   }
-
   // Function to handle toggle for "More of Me"
   function handleToggle(checkbox) {
     if (checkbox.checked) {
@@ -430,7 +502,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Set delay before opening link
       setTimeout(() => {
-        window.open('https://chrisdonker.nl/', '_blank');
+        window.open('https://portfolio-2025-production-01b0.up.railway.app/', '_blank');
 
         // Reset the toggle
         checkbox.checked = false;
@@ -438,7 +510,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 1000); // 1 second delay
     }
   }
-
   // Load data from JSON file
   function loadData() {
     // Show loading state using template
@@ -476,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
   }
-
+  // Randomize Projects and show them on the page
   function randomizeAndRender() {
     // Set current sort to null (no sorting)
     currentSort = { type: null, direction: null };
@@ -487,7 +558,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Render the list (which will now be in random order since sorting is disabled)
     renderList();
   }
-
   // Make handleToggle available globally
   window.handleToggle = handleToggle;
 

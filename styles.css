@@ -396,7 +396,7 @@ header {
     }
   }
 }
-
+/* WN Section */
 #WN {
   display: flex;
   flex-direction: column;
@@ -697,6 +697,7 @@ header {
     }
   }
 }
+/* Classes Section */
 #classes{
 
   > section:nth-of-type(1) {
@@ -797,6 +798,7 @@ header {
   }
 }
 }
+/* Hackathon Section */
 #hackathon {
   display: flex;
   flex-direction: column;
@@ -915,7 +917,7 @@ header {
     }
   }
 }
-
+/* Reflection Section */
 #reflection {
   display: flex;
   flex-direction: column;
@@ -1167,10 +1169,6 @@ hr{
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.close-button:active{
-  
-}
-
 
 
 
@@ -1346,6 +1344,25 @@ hr{
   border-top-color: var(--primary-color);
 }
 
+/* Make toggle indicators more visible */
+.toggle-indicator {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    stroke-width: 2.5px; /* Make the stroke thicker */
+  }
+}
+
+
 /* Animations */
 @keyframes moveGradient {
   100% {
@@ -1445,25 +1462,141 @@ hr{
   }
 }
 
-/* Make toggle indicators more visible */
-.toggle-indicator {
-  display: inline-flex;
-  width: 24px;
-  height: 24px;
-  justify-content: center;
-  align-items: center;
-  margin-left: 8px;
 
-  svg {
-    width: 16px;
-    height: 16px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    stroke-width: 2.5px; /* Make the stroke thicker */
+
+/* Meesterproef Reflection Section */
+#Meesterproef-reflection {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  position: relative;
+  margin-top: 2em;
+  margin-bottom: 4em;
+  scroll-margin-top: 100px;
+  
+  > section:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    h2 {
+      font-weight: 500;
+      font-size: 2.5em;
+      margin: 0;
+    }
+    
+    p {
+      font-weight: 200;
+      font-size: 1.2em;
+      margin: 0;
+      color: #666;
+    }
+  }
+  
+  .reflection-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      align-items: start;
+
+      .reflection-box {
+        background-color: #f9f9fb;
+        padding: 1.5em;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 12rem;
+
+        h3 {
+          margin: 0 0 0.8em 0;
+          font-size: 1.5em;
+          font-weight: 500;
+          color: #333;
+        }
+
+        p {
+          margin: 0;
+          font-size: 1em;
+          line-height: 1.6;
+          color: #555;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        &.span-2 {
+          grid-column: span 2;
+        }
+        .less-height{
+            height: 5rem;
+          }
+      }
+    }
+    
+    .meesterproef-goals {
+      .goal-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+        align-items: start;
+        
+        .goal-card {
+          background-color: #f9f9fb;
+          padding: 1.5em;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+          flex-direction: column;
+           height: 12rem;
+          
+          h4 {
+            margin: 0 0 1em 0;
+            font-size: 1.3em;
+            color: #333;
+          }
+          
+          p {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+          }
+
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          }
+
+          
+        }
+      }
+    }
   }
 }
 
-/* ===== Hackathon Section Styling ===== */
-
-
-/* ===== Reflection Section Styling ===== */
+/* Media queries for Meesterproef section */
+@media (max-width: 900px) {
+  #Meesterproef-reflection {
+    > section:nth-of-type(2) {
+      > div:nth-of-type(1) {
+        grid-template-columns: 1fr;
+        
+        .span-2 {
+          grid-column: span 1;
+        }
+      }
+      
+      > div:nth-of-type(2) > div:nth-of-type(1) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

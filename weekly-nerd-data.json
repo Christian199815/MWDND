@@ -346,8 +346,8 @@
       "title": "IDEA11Y Meetup — Inclusive Design & Accessibility in Practice",
       "speaker": "Erik Kroes, Anastasia, Nienke de Keijzer",
       "type": "Weekly Nerd",
-      "date": "28 maart 2025",
-      "dateObj": "2025-03-28",
+      "date": "16 april 2025",
+      "dateObj": "2025-04-16",
       "content": {
         "summary": "As part of the CN Donderdagen series and the Weekly Nerd program, this special English-language edition focused on accessibility (a11y) in digital design. The event featured multiple speakers sharing insights on implementing inclusive design principles and practical WCAG fixes.",
         "introduction": "The vision behind CN Donderdagen is to critically explore the role of design today — by hosting talks and inviting experts to help collectively question, reflect, and maybe even get closer to the one true answer. This event marked the first English-language talk in the series, opening the conversation to an international perspective on inclusive design.",
@@ -394,6 +394,195 @@
         ],
         "conclusion": "Accessibility is not a bonus feature. It's the foundation of good digital design."
       }
+    },
+    {
+  "id": "MH-WN",
+  "title": "Digitale Toegankelijkheid",
+  "speaker": "Marieke de Hoop",
+  "type": "Weekly Nerd",
+  "date": "28 Mei 2025",
+  "dateObj": "2025-05-28",
+  "content": {
+    "summary": "Marieke de Hoop, oud-CMD-student, vertelt waarom digitale toegankelijkheid iedereen aangaat. Ze legt uit dat ongeveer 32% van de mensen in Nederland een permanente beperking heeft (5,5 miljoen mensen), maar dat ook tijdelijke of situationele beperkingen het gebruik van digitale tools kunnen bemoeilijken.",
+    "sections": [
+      {
+        "title": "Toegankelijkheid in cijfers",
+        "description": "Ongeveer 32% van de mensen in Nederland heeft een permanente beperking – dat zijn 5,5 miljoen mensen. Ook tijdelijke of situationele beperkingen, zoals een gebroken arm, migraine, fel zonlicht of overprikkeling, kunnen het gebruik van digitale tools moeilijk maken.",
+        "span": 1
+      },
+      {
+        "title": "Ontwerpen met empathie",
+        "description": "Toegankelijkheid draait om ontwerpen met empathie. Marieke benadrukt dat jouw eigen ervaringen met beperkingen meer diepgang kunnen geven aan je ontwerp. De toegankelijkheidsbranche is breed en richt zich op onderzoek, advies, trainingen, projectmanagement en het ontwikkelen van toegankelijke producten.",
+        "span": 1
+      },
+      {
+        "title": "Praktijkwerk en audits",
+        "description": "Zelf voert Marieke toegankelijkheidsaudits uit aan de hand van de WCAG-richtlijnen, waarbij onder andere gekeken wordt naar code, contrast en semantiek. Een voorbeeld is haar werk met ASR, waar het hele bedrijf wordt doorgelicht op digitale toegankelijkheid. Daarnaast geeft ze trainingen aan studenten en bedrijven om bewustwording te vergroten.",
+        "span": 2
+      },
+      {
+        "title": "European Accessibility Act",
+        "description": "De aankomende European Accessibility Act verplicht toegankelijkheid voor onder andere webshops, banken en telecombedrijven die consumenten bedienen. Er geldt een overgangsperiode van vijf jaar voor bestaande content. Kleine B2B-bedrijven vallen soms buiten de regeling, maar vrijstellingen zijn zeldzaam. Niet voldoen kan leiden tot boetes tot 20 miljoen euro of 10% van de omzet.",
+        "span": 2
+      }
+    ],
+    "conclusion": "Toegankelijkheid is geen bijzaak, maar essentieel voor iedereen die digitale producten ontwerpt of ontwikkelt."
     }
-      
-  ]
+    },
+    {
+  "id": "Q42-VISIT",
+  "title": "Een bezoekje bij Q42",
+  "speaker": "De mensen van Q42",
+  "type": "Company Visit",
+  "date": "21 Mei 2025",
+  "dateObj": "2025-05-21",
+  "content": {
+    "summary": "Tijdens het bezoek aan Q42 kregen we een rondleiding en een inspirerend praatje van Vasilis over waarom hij Q42 het allerbeste nerd bureau vindt. Volgens hem komt dat door hun unieke aanpak: toegankelijkheid staat hier al meer dan 12 jaar centraal, direct vanaf het begin van het ontwerp.",
+    "sections": [
+      {
+        "title": "Wat is Q42?",
+        "description": "Q42 maakt digitale producten die het leven van mensen leuker, slimmer en makkelijker maken. Met meer dan 100 medewerkers ('Q'ers') en vestigingen in Amsterdam, Den Haag (en in de toekomst ook Rotterdam), werken ze voor klanten zoals HEMA, Rijksmuseum, Philips Hue en Wie is de Mol? Daarnaast werken ze ook aan inhouse projecten, zoals VR- en AR-toepassingen en zelfs fysieke installaties.",
+        "span": 2
+      },
+      {
+        "title": "Het Q-DNA",
+        "description": "Het Q-DNA bestaat uit toegankelijkheid (zo vroeg mogelijk in het proces meenemen), strijden voor de gebruiker (bijvoorbeeld met de eigen gebruikerstestmethode RUN), innovatie (door te blijven spelen met nieuwe technologie), W00tcamp (interne hackathon) en Passiedag (elke twee weken werken aan eigen projecten op vrijdag). 'Als programmeurs beperken we onze gebruikers – daarom moeten we zorgen dat dit níét gebeurt.'",
+        "span": 2
+      },
+      {
+        "title": "Regelgeving",
+        "description": "De European Accessibility Act (EAA) verplicht digitale toegankelijkheid. WCAG-richtlijnen zijn essentieel voor gebruikers die niet goed kunnen zien, horen, bewegen of begrijpen.",
+        "span": 1
+      },
+      {
+        "title": "Medewerkers aan het woord",
+        "description": "Lars, oud-CMD'er, werkt inmiddels 2 jaar bij Q42. Zijn rol zit tussen design en development in, met een constante focus op de gebruiker.",
+        "span": 1
+      }
+    ],
+    "projects": [
+      {
+        "title": "SenseMath",
+        "description": "Ontwikkeld met en voor kinderen met een visuele beperking (i.s.m. Visio). Zet wiskundige grafieken om in geluid via frequentiemodulatie en ook voelbare grafieken via swell paper. Verschillende geluiden geven hoogte en vorm van de grafiek aan. Koppeling met boeken: de app weet welke pagina je gebruikt. Belangrijk inzicht: jonge kinderen hebben minder details nodig in het ontwerp."
+      },
+      {
+        "title": "Oculi Mundi",
+        "description": "Een digitale ervaring rond oude atlassen van een rijke familie. De klant wilde géén 'standaard site', maar een echte ervaring. De planeten hadden makkelijk met WebGL gemaakt kunnen worden, maar WebGL is beperkt toegankelijk. Daarom bewust gekozen voor HTML en CSS, met minimale inzet van WebGL. Toegankelijkheid stond voorop zonder visuele kracht te verliezen."
+      }
+    ],
+    "conclusion": "Q42 combineert technische innovatie met menselijke waarden. Ze ontwerpen niet alleen mooie en slimme producten, maar zorgen er ook voor dat die werken voor iedereen met toegankelijkheid als vanzelfsprekend fundament."
+  }
+    },
+    {
+  "id": "IO-WN",
+  "title": "Weekly Nerd bij iO Digital",
+  "speaker": "Dave Bitter, Steve Jonk, Clarke Verdel",
+  "type": "Weekly Nerd",
+  "date": "14 mei 2025",
+  "dateObj": "2025-05-14",
+  "content": {
+    "summary": "Bij iO Digital kregen we een kijkje in de keuken van een zogenoemd blended agency, waar technologie, creativiteit en marketing samenkomen. Ze werken aan de volledige digitale experience: van branding tot aftercare, social media tot self service-platforms.",
+    "sections": [
+      {
+        "title": "Over iO Digital",
+        "description": "iO Digital is een blended agency waar technologie, creativiteit en marketing samenkomen. Ze werken voor klanten zoals PostNL, bol.com, Audi, Amnesty en de Efteling aan vraagstukken zoals: Hoe kunnen studenten slimmer samenwerken? (Acco), Real-time data van warehouse tot winkelvloer (Vans), Minder wachttijd in de Efteling, Responsible gokken bij de Nationale Loterij, en AI-project 'Laika 13': opvoeding van een tiener via social media (Zweden).",
+        "span": 2
+      }
+    ],
+    "talks": [
+      {
+        "speaker": "Dave Bitter",
+        "title": "AI powered voice interfaces",
+        "description": "Dave liet zien hoe hij een oude webapplicatie (PresiParrot) nieuw leven inblies met AI. Met de Web Speech API (speech recognition & synthesis) en een lokaal AI-model maakt hij volledige spraakgestuurde communicatie mogelijk.",
+        "highlights": [
+          "Prompt-engineering: ChatGPT instrueren om alleen via audio te communiceren",
+          "Animatie toont wanneer de AI 'praat'",
+          "Geen tekstinvoer nodig, alleen stem",
+          "Tools als ElevenLabs voor betere spraaksynthese",
+          "Belangrijk punt: Wachten op een AI-reactie moet snel en vloeiend aanvoelen"
+        ],
+        "quote": "Pak een oud project van jezelf en geef het een AI-upgrade!"
+      },
+      {
+        "speaker": "Steve Jonk",
+        "title": "Twitter Follow Bot",
+        "description": "Steve bouwde een Twitter (X) bot voor automatisch volgen en ontvolgen van accounts. Een 'grijs gebied'-project dat laat zien hoe ver je kunt gaan met open data.",
+        "details": [
+          "Gebruikte tools als n8n (workflow automation), Puppeteer (scraping)",
+          "Scrapte followers via netwerkrequests omdat X ze niet meer toont in de frontend",
+          "Randomizers toegevoegd om bots te maskeren",
+          "Leerde hoe API-limieten, rate limits en anti-bot-mechanismen werken"
+        ],
+        "quote": "Technisch kan er veel, maar ethisch en legaal moet je ook goed opletten."
+      },
+      {
+        "speaker": "Clarke Verdel",
+        "title": "Testen als een echte gebruiker",
+        "description": "Clarke legde uit hoe bij iO componenten en flows automatisch getest worden, net zoals een echte gebruiker dat zou doen. Dit wordt onder andere toegepast bij Miele X, waar ze een platform voor 26 landen bouwen.",
+        "testStructure": [
+          "Linting en typechecking (bijv. met TypeScript)",
+          "Unit tests – kleine onderdelen",
+          "Integration tests – interacties tussen onderdelen",
+          "E2E-tests – volledige gebruikersflows",
+          "Tools zoals Vitest en component-driven testing"
+        ],
+        "quote": "Een goede developer weet hoe hij moet testen. Het kost tijd, het is niet altijd leuk, maar het maakt je code betrouwbaar."
+      }
+    ],
+    "takeaways": [
+      "Superinteressante middag met sterke balans tussen tech en praktijkvoorbeelden",
+      "Veel geleerd over AI in de frontend, automatisering en teststrategieën",
+      "Inspiratie om oude projecten te revisiten met nieuwe technologie",
+      "iO Digital is een plek waar creativiteit en code écht samenkomen"
+    ]
+  }
+    },
+    {
+  "id": "NL-WN-GELD",
+  "title": "Geld verdienen met Project Fugu",
+  "speaker": "Niels Leenheer",
+  "type": "Weekly Nerd",
+  "date": "TBD",
+  "dateObj": "TBD",
+  "content": {
+    "summary": "Niels Leenheer liet zien hoe je een kassasysteem bouwt met webtechnologie, gebruikmakend van Google's Project Fugu dat webtechnologie uitbreidt met krachtige API's voor toegang tot hardware zoals printers, scanners en pinapparaten.",
+    "sections": [
+      {
+        "title": "Wat is Project Fugu?",
+        "description": "Een initiatief van Google dat webtechnologie uitbreidt met krachtige API's, zodat webapps toegang krijgen tot hardware zoals printers, scanners en pinapparaten.",
+        "span": 1
+      },
+      {
+        "title": "Een kassa met webtechnologie",
+        "description": "Voorbeeld: Salon Hub - een kappersafspraak- en kassasysteem gebaseerd op webtech (mogelijk ook een stageplek). Gebouwd met Electron voor desktop-apps, Progressive Web Apps (PWA's) die ook werken op tablets zoals Android, en Project Fugu API's die communicatie met randapparatuur mogelijk maken.",
+        "span": 1
+      }
+    ],
+    "hardware": [
+      {
+        "title": "Bonprinter",
+        "description": "Werkt via WebUSB (alleen in Chromium browsers). Je moet 'praten' met de printer via ASCII-commando's, maar ASCII is verouderd → Unicode is nu de standaard. Elke printer spreekt een andere 'taal', dus je schrijft specifieke code per printer. Gebruik van JS-libraries is vaak complex en frustrerend.",
+        "futuresolution": "Gebruik WebSerial of WebBluetooth → betrouwbaarder & universeel"
+      },
+      {
+        "title": "Klantschermen",
+        "description": "Communiceren via ESC/POS (oud protocol, saai maar nog veelgebruikt). WebSerial is een moderne oplossing om dit aan te sturen.",
+        "library": "WebSerialCustomerDisplay library"
+      },
+      {
+        "title": "Barcode Scanner",
+        "description": "Gedraagt zich als een toetsenbord (typt nummers + enter). Meerdere soorten barcodes → o.a. GTIN (Global Trade Item Number).",
+        "solutions": [
+          "WebHIDBarcodeScanner",
+          "Webcam-module die barcodes op canvas uitleest met een worker"
+        ]
+      },
+      {
+        "title": "QR Codes",
+        "description": "Werken hetzelfde als barcodes, maar leiden vaak naar URL's. Kassasystemen negeren dit meestal (geen probleem)."
+      }
+    ],
+    "conclusion": "Het bouwen van een kassasysteem met webtechnologie is mogelijk dankzij moderne Web API's (Project Fugu). Het is technisch uitdagend, maar dankzij open source werk van Niels hoef je het wiel niet opnieuw uit te vinden. Dankzij nerds zoals Niels kunnen we straks kassa's bouwen in de browser."
+  }
+    }
+]
